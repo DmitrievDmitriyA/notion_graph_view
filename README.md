@@ -6,3 +6,35 @@ It takes the data and converts it to graphml format, so it could be viewed in [y
 At the moment it is wirtten in the way, so it can only work with my databases, but you can use it as a refference to construct something that fits you.
 
 ![](./examples/radial_graph.png)
+
+### Prerequisites
+
+- Python 3
+
+### Installation
+
+```bash 
+virtualenv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Execution
+
+- Add config.json to the root folder
+```json
+{
+    "key": "token",
+    "zet_database_id": "db_id",
+    "tags_database_id": "db_id"
+}
+```
+- Execute:
+```bash
+python main.py
+```
+- Once zettelkasten.graphml is created open it in yEd and apply a layout of your choice
+
+![](./examples/layout.png)
+
+- Profit
