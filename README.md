@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 ### Execution
 
-- Add config.json to the root folder
+- Add config.json to the root folder. The process of generating a token and collecting a database id is described [here](https://developers.notion.com/docs/getting-started)
 ```json
 {
     "key": "token",
