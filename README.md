@@ -42,3 +42,4 @@ python main.py
 ### To Do
 - [ ] Make it generic
 - [ ] Exe
+- [ ] Make tags optional
