@@ -38,3 +38,7 @@ python main.py
 ![](./examples/layout.png)
 
 - Profit
+
+### To Do
+- Make it generic
+- Exe
