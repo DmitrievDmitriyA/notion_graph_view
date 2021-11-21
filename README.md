@@ -40,5 +40,5 @@ python main.py
 - Profit
 
 ### To Do
-- Make it generic
-- Exe
+- [ ] Make it generic
+- [ ] Exe
