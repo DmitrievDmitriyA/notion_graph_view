@@ -1,6 +1,14 @@
 import json
 from notion_requests import Client
-import networkx as nx
+import pyyed
+import formatting
+
+
+NODE_TYPE_COLOR = {
+    'Concept': "#ccffcc",
+    'Observation': "#99ccff",
+    'Story': "#cc99ff"
+}
 
 
 def decode(x):
@@ -47,7 +55,11 @@ def main():
 
     for page in pages:
         # add the page to nodes
-        nodes.append(page["id"])
+        nodes.append({
+            "id": page["id"],
+            "type": page["properties"]["Type"]["select"]["name"],
+            "content": page["properties"]["Name"]["title"][0]["text"]["content"]
+            })
 
         # check links to previous cards and add edges
         # care only about previous links cause next links only duplicate them
@@ -55,10 +67,17 @@ def main():
             e = (page["id"], node["id"])
             edges.append(e)
 
-    graph = nx.Graph()
-    graph.add_nodes_from(nodes)
-    graph.add_edges_from(edges)
-    nx.write_graphml(graph, "./zettelkasten.graphml")
+    graph = pyyed.Graph()
+
+    for node in nodes:
+        width, height, content = formatting.beautify(node["content"])
+
+        graph.add_node(node["id"], shape_fill=NODE_TYPE_COLOR[node["type"]], label=content, width=str(width), height=str(height))
+
+    for edge in edges:
+        graph.add_edge(*edge)
+
+    graph.write_graph("./zettelkasten.graphml")
 
 
 if __name__ == "__main__":
