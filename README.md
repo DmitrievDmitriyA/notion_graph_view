@@ -1,4 +1,4 @@
-# notion_graph_view
+# Notion graph view
 
 The script helps to create graph view based on information it retrieves from notion database.
 It takes the data and converts it to graphml format, so it could be viewed in [yEd](https://www.yworks.com/products/yed) afterwards.
