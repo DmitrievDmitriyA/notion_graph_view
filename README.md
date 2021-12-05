@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
-- Once zettelkasten.graphml is created open it in yEd and apply a layout of your choice
+- Once zettelkasten.graphml is created open it in [yEd](https://www.yworks.com/products/yed) and apply a layout of your choice
 
 ![](./examples/layout.png)
 
