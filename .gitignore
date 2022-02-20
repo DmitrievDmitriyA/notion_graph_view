@@ -1,4 +1,5 @@
 config.json
+_config.json
 *.graphml
 
 # Byte-compiled / optimized / DLL files
