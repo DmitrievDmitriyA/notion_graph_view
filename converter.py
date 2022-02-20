@@ -1,6 +1,6 @@
 
 
-def notion_to_yEd(pages_per_database):
+def notion_to_yEd(relations_per_database, pages_per_database):
     nodes_per_database = []
     edges_per_database = []
 
@@ -41,4 +41,4 @@ def notion_to_yEd(pages_per_database):
         #     e = (page["id"], node["id"])
         #     edges.append(e)
 
-    return nodes_per_database
+    return (nodes_per_database, edges_per_database)
