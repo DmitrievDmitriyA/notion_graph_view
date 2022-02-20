@@ -3,7 +3,7 @@
 The script helps to create graph view based on information it retrieves from notion database.
 It takes the data and converts it to graphml format, so it could be viewed in [yEd](https://www.yworks.com/products/yed) afterwards.
 
-It is created to analyze relations between databases and and draw them.
+It is designed to analyze relations between databases and draw them.
 Also you can use it as a source of inspiration. 
 
 ![](./examples/radial_graph.png)
