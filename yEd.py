@@ -19,9 +19,18 @@ NODE_TYPE_COLOR = [
     "#FBF8CC"
 ]
 
-EDGE_TYPE_COLOR = {
-    "Tag": "#F1C0E8"
-}
+EDGE_TYPE_COLOR = [
+    "#93C798",
+    "#78C2B2",
+    "#70BBC2",
+    "#72AEC2",
+    "#809ABF",
+    "#A291BD",
+    "#BF99B8",
+    "#CCA5A8",
+    "#C9B6A5",
+    "#C7C4A1",
+]
 
 
 # Helps to format text for node rendering in yEd
@@ -66,18 +75,8 @@ def create_graphML(nodes_per_database, edges_per_database):
             width, height, content = beautify(node["name"])
             graph.add_node(node["id"], shape_fill=NODE_TYPE_COLOR[index], label=content, width=str(width), height=str(height))
 
-    # for tag in tags:
-    #     width, height, content = beautify(tag["name"])
-    #     graph.add_node(tag["id"], shape_fill=NODE_TYPE_COLOR["Tag"], label=content, width=str(width), height=str(height))
-
-    # for node in nodes:
-    #     width, height, content = beautify(node["content"])
-    #     graph.add_node(node["id"], shape_fill=NODE_TYPE_COLOR[node["type"]], label=content, width=str(width), height=str(height))
-
-    # for edge in tags_edges:
-    #     graph.add_edge(*edge, color=EDGE_TYPE_COLOR["Tag"])
-
-    # for edge in edges:
-    #     graph.add_edge(*edge)
+    for index, edges in enumerate(edges_per_database):
+        for edge in edges:
+            graph.add_edge(*edge, color=EDGE_TYPE_COLOR[index])
 
     graph.write_graph("./zettelkasten.graphml")

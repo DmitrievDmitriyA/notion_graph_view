@@ -9,7 +9,9 @@ def main():
 
     relations_per_database, pages_per_database = notion_database.obtain_relation_and_pages(token, database_ids)
 
-    yEd.create_graphML(*converter.notion_to_yEd(relations_per_database, pages_per_database))
+    nodes_per_database, edges_per_database = converter.notion_to_yEd(relations_per_database, pages_per_database)
+
+    yEd.create_graphML(nodes_per_database, edges_per_database)
 
 
 if __name__ == "__main__":
