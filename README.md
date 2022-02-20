@@ -24,7 +24,7 @@ pip install -r requirements.txt
 - Add config.json to the root folder. The process of generating a token and collecting a database id is described [here](https://developers.notion.com/docs/getting-started)
 ```json
 {
-    "key": "token",
+    "token": "token",
     "zet_database_id": "db_id",
     "tags_database_id": "db_id"
 }
@@ -41,5 +41,7 @@ python main.py
 
 ### To Do
 - [ ] Make it generic
+- [ ] Let to set path and name of final file
+- [ ] Cyclic colors
 - [ ] Exe
 - [ ] Make tags optional

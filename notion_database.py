@@ -5,6 +5,7 @@ def obtain_pages(token, database_id):
 
     notion = Client(token)
 
+    # TODO: load the query from json
     query = {
         'database_id': database_id,
         'sorts': [
