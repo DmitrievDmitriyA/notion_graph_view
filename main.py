@@ -7,8 +7,9 @@ import yEd
 def main():
     token, database_ids = secrets.load_config()
 
-    zet_pages = notion_database.obtain_pages(token, zet_database_id)
-    tags_pages = notion_database.obtain_pages(token, tags_database_id)
+    pages = []
+    for database_id in database_ids:
+        pages.append(notion_database.obtain_pages(token, database_id))
 
     yEd.create_graphML(*converter.notion_to_yEd(zet_pages, tags_pages))
 
