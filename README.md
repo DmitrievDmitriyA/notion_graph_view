@@ -40,8 +40,5 @@ python main.py
 - Profit
 
 ### To Do
-- [ ] Make it generic
 - [ ] Let to set path and name of final file
-- [ ] Cyclic colors
 - [ ] Exe
-- [ ] Make tags optional
