@@ -6,12 +6,18 @@ LETTER_HEIGHT = 15
 WORDS_PER_LINE = 5
 
 
-NODE_TYPE_COLOR = {
-    'Concept': "#FBF8CC",
-    'Observation': "#FDE4CF",
-    'Story': "#FFCFD2",
-    'Tag': "#F1C0E8"
-}
+NODE_TYPE_COLOR = [
+    "#B9FBC0",
+    "#98F5E1",
+    "#8EECF5",
+    "#90DBF4",
+    "#A3C4F3",
+    "#CFBAF0",
+    "#F1C0E8",
+    "#FFCFD2",
+    "#FDE4CF",
+    "#FBF8CC"
+]
 
 EDGE_TYPE_COLOR = {
     "Tag": "#F1C0E8"
@@ -51,22 +57,27 @@ def beautify(text):
     return (width, height, content)
 
 
-def create_graphML(nodes, edges, tags, tags_edges):
+def create_graphML(nodes_per_database):
 
     graph = pyyed.Graph()
 
-    for tag in tags:
-        width, height, content = beautify(tag["name"])
-        graph.add_node(tag["id"], shape_fill=NODE_TYPE_COLOR["Tag"], label=content, width=str(width), height=str(height))
+    for index, nodes in enumerate(nodes_per_database):
+        for node in nodes:
+            width, height, content = beautify(node["name"])
+            graph.add_node(node["id"], shape_fill=NODE_TYPE_COLOR[index], label=content, width=str(width), height=str(height))
 
-    for node in nodes:
-        width, height, content = beautify(node["content"])
-        graph.add_node(node["id"], shape_fill=NODE_TYPE_COLOR[node["type"]], label=content, width=str(width), height=str(height))
+    # for tag in tags:
+    #     width, height, content = beautify(tag["name"])
+    #     graph.add_node(tag["id"], shape_fill=NODE_TYPE_COLOR["Tag"], label=content, width=str(width), height=str(height))
 
-    for edge in tags_edges:
-        graph.add_edge(*edge, color=EDGE_TYPE_COLOR["Tag"])
+    # for node in nodes:
+    #     width, height, content = beautify(node["content"])
+    #     graph.add_node(node["id"], shape_fill=NODE_TYPE_COLOR[node["type"]], label=content, width=str(width), height=str(height))
 
-    for edge in edges:
-        graph.add_edge(*edge)
+    # for edge in tags_edges:
+    #     graph.add_edge(*edge, color=EDGE_TYPE_COLOR["Tag"])
+
+    # for edge in edges:
+    #     graph.add_edge(*edge)
 
     graph.write_graph("./zettelkasten.graphml")
