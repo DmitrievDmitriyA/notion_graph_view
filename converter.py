@@ -20,10 +20,13 @@ def _convert_database(relations, pages):
 
     for page in pages:
         # obtain id and name of every page to form a node
-        nodes.append({
-            "id": page["id"],
-            "name": page["properties"]["Name"]["title"][0]["text"]["content"]
-        })
+        try:
+            nodes.append({
+                "id": page["id"],
+                "name": page["properties"]["Name"]["title"][0]["text"]["content"]
+            })
+        except IndexError as e:
+            print("One of your notes do not have title. Page id: " + page["id"])
 
         for id, name in relations.items():
             for relation in page["properties"][name]["relation"]:
