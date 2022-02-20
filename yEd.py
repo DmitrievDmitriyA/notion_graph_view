@@ -7,14 +7,14 @@ WORDS_PER_LINE = 5
 
 
 NODE_TYPE_COLOR = {
-    'Concept': "#ccffcc",
-    'Observation': "#99ccff",
-    'Story': "#cc99ff",
-    'Tag': "#ffcc99"
+    'Concept': "#FBF8CC",
+    'Observation': "#FDE4CF",
+    'Story': "#FFCFD2",
+    'Tag': "#F1C0E8"
 }
 
 EDGE_TYPE_COLOR = {
-    "Tag": "#ffcc99"
+    "Tag": "#F1C0E8"
 }
 
 
