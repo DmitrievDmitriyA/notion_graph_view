@@ -57,7 +57,7 @@ def beautify(text):
     return (width, height, content)
 
 
-def create_graphML(nodes_per_database):
+def create_graphML(nodes_per_database, edges_per_database):
 
     graph = pyyed.Graph()
 

@@ -7,11 +7,9 @@ import yEd
 def main():
     token, database_ids = secrets.load_config()
 
-    pages_per_database = []
-    for database_id in database_ids:
-        pages_per_database.append(notion_database.obtain_pages(token, database_id))
+    relations_per_database, pages_per_database = notion_database.obtain_relation_and_pages(token, database_ids)
 
-    yEd.create_graphML(converter.notion_to_yEd(pages_per_database)) # TODO: return tuple
+    yEd.create_graphML(*converter.notion_to_yEd(relations_per_database, pages_per_database))
 
 
 if __name__ == "__main__":
